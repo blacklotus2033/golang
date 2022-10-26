@@ -8,3 +8,11 @@ type Request struct {
 type Response struct {
 	Message string `json:"message"`
 }
+
+type AnotherReq struct {
+	Name string `path:"name"`
+}
+
+type AnotherRes struct {
+	Message string `json:"message"`
+}
