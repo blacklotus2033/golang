@@ -9,7 +9,13 @@ func main() {
 		if p, ok := c.GetQuery("from"); ok {
 			from = p
 		}
-		c.String(200, "greeting: %s", from)
+		c.String(200, "double greeting: %s", from)
 	})
-	r.Run() //1)默认应该是8080
+	go r.Run() //2)不阻塞
+	//
+	a := gin.New()
+	a.GET("/admin", func(c *gin.Context) {
+		c.JSON(200, gin.H{"in": "admin"})
+	})
+	a.Run(":8000") //1)用admin来做一个阻塞
 }

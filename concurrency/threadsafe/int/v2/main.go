@@ -2,17 +2,26 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
-func main() {
+const LoopTimes = 999999
+
+func main() { //1)这个程序是有二义性的，即便是单核CPU
+	runtime.GOMAXPROCS(1)
+
 	var cnt int
-	for i := 0; i < 9999; i++ {
-		go func() { //1)go程模拟并发
-			time.Sleep(time.Second)
+	go func() {
+		for i := 0; i < LoopTimes; i++ {
+			cnt *= 3
+		}
+	}()
+	go func() {
+		for i := 0; i < LoopTimes; i++ {
 			cnt++
-		}()
-	}
-	time.Sleep(2 * time.Second) //2)等待是不可或缺的
-	fmt.Println("cnt:", cnt)    //3)这个程序最严重的问题是：正确性得不到保证
+		}
+	}()
+	time.Sleep(2 * time.Second)
+	fmt.Println("cnt:", cnt)
 }

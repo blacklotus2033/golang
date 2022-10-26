@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="WSL - Ubuntu" type="wsl" uuid="5f423a6e-213e-4f33-8b9e-56c8eb405647">
+        <config>
+          <option name="distributionMsId" value="Ubuntu" />
+          <option name="projectRootOnTarget" value="/mnt/c/Program Files/JetBrains/GoLand 2022.2/jbr/bin&#10;/golang" />
+        </config>
+        <ContributedStateBase type="GoLanguageRuntime">
+          <config>
+            <option name="compiledExecutablesVolume">
+              <VolumeState>
+                <option name="remotePath" value="/home/pc/goland_out/exe" />
+              </VolumeState>
+            </option>
+            <option name="goPath" value="/home/pc/go" />
+            <option name="goRoot" value="/usr/bin/go" />
+            <option name="goVersion" value="go1.13.8 linux/amd64" />
+            <option name="projectSourcesVolume">
+              <VolumeState>
+                <option name="remotePath" value="/home/pc/goland_out/src" />
+              </VolumeState>
+            </option>
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

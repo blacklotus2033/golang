@@ -20,6 +20,6 @@ func (v Pair[T]) Distance() T {
 func main() {
 	var p = Point{1, 2}
 	var c = Complex{5, 3}
-	fmt.Println(Pair[float64](p).Distance())
+	fmt.Println(Pair[float32](p).Distance())
 	fmt.Println(Pair[float64](c).Distance())
 }

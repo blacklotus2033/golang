@@ -9,7 +9,8 @@ import (
 )
 
 const (
-	WorkerNum = 4
+	WorkerNum = 20
+	//ProcNum   = 1
 	ProcNum   = WorkerNum + 5
 	TargetSum = 1e8
 	ChanBuf   = 1e4
@@ -52,14 +53,21 @@ func main() {
 	runtime.GOMAXPROCS(ProcNum)
 	t := time.Now()
 	//
-	//
 	wg := new(sync.WaitGroup)
+	{
+		fmt.Println("BaseLine")
+		for i := 0; i < TargetSum; i++ {
+			sum++
+		}
+		fmt.Println("TargetSum:", TargetSum, "sum:", sum)
+		fmt.Println("time.Since():", time.Since(t))
+		t = time.Now()
+	}
 	{
 		fmt.Println("ByMutex")
 		for i := 0; i < WorkerNum; i++ {
 			wg.Add(1)
 			go ByMutex(wg)
-			//go ByAtomic(wg)
 		}
 		wg.Wait()
 		fmt.Println("TargetSum:", TargetSum, "WorkerNum:", WorkerNum, "sum:", sum)
@@ -70,7 +78,6 @@ func main() {
 		fmt.Println("ByAtomic")
 		for i := 0; i < WorkerNum; i++ {
 			wg.Add(1)
-			//go ByMutex(wg)
 			go ByAtomic(wg)
 		}
 		wg.Wait()
@@ -84,13 +91,11 @@ func main() {
 		go ByChanConsume(ch)
 		for i := 0; i < WorkerNum; i++ {
 			wg.Add(1)
-			//go ByMutex(wg)
-			//go ByAtomic(wg)
 			go ByChanProduce(wg, ch)
 		}
 		wg.Wait()
 		close(ch)
-		fmt.Println("TargetSum:", TargetSum, "WorkerNum:", WorkerNum, "sum:", sum)
+		fmt.Println("TargetSum:", TargetSum, "WorkerNum:", WorkerNum, "ChanBuf:", ChanBuf, "sum:", sum)
 		fmt.Println("time.Since():", time.Since(t))
 		t = time.Now()
 	}

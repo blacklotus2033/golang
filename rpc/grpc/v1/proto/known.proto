@@ -1,17 +1,23 @@
 syntax = "proto3";
 option go_package = "./pb;pb";
 
-message CoffeeOrder {
-  uint64 uid = 1;
-  string userName = 2;
-  string note = 3;
-  message CoffeeItem {
-    uint64 cid = 1;
-    string name = 2;
-    uint32 quality =3;
-    double each = 4;
-    double price = 5;
-  }
-  repeated CoffeeItem Items = 6;
-  double totalPrice = 7;
+service Known {
+  rpc Sqrt (SqrtReq) returns (SqrtRes) {}
+  rpc KnowFrom (KnowFromReq) returns (KnowFromRes) {}
 }
+
+message SqrtReq {
+  double input = 1;
+}
+
+message SqrtRes {
+  double root = 1;
+}
+
+message KnowFromReq {
+}
+
+message KnowFromRes {
+  string greetings = 1;
+}
+

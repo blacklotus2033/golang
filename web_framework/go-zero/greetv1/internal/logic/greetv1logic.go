@@ -24,7 +24,7 @@ func NewGreetv1Logic(ctx context.Context, svcCtx *svc.ServiceContext) *Greetv1Lo
 }
 
 func (l *Greetv1Logic) Greetv1(req *types.Request) (resp *types.Response, err error) {
-	// todo: add your logic here and delete this line
-
+	resp = new(types.Response)
+	resp.Message = "hello!" + req.Name
 	return
 }

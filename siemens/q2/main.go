@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-type statement struct {
-	cmd string
-	params []string
-	Children []statement
+type Statement struct {
+	Cmd      string
+	Params   []string
+	Children []Statement
 }
 
 func main() {
@@ -16,13 +16,13 @@ func main() {
 		"-[else]\n" +
 		"--[print](You are still young)"
 
-	st: = statement{cmd: "", params: nil, Children: []statement{
-		statement{cmd: "assign", params: []string{"age", "15"}},
-		statement{cmd: "if", params: []string{"age", ">=", "18"}, Children: []statement{
-			statement{cmd: "print", params: []string{""}},
+	st: = Statement{Cmd: "", Params: nil, Children: []Statement{
+		Statement{Cmd: "assign", Params: []string{"age", "15"}},
+		Statement{Cmd: "if", Params: []string{"age", ">=", "18"}, Children: []Statement{
+			Statement{Cmd: "print", Params: []string{""}},
 			}
 		},
-		statement{cmd: "else", params: nil, Children: []statement{
+		Statement{Cmd: "else", Params: nil, Children: []Statement{
 
 		}},
 	}}
