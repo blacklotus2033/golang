@@ -15,4 +15,5 @@ type AnotherReq struct {
 
 type AnotherRes struct {
 	Message string `json:"message"`
+	Another string `json:"another"`
 }

@@ -12,6 +12,7 @@ type AnotherReq {
 
 type AnotherRes {
 	Message string `json:"message"`
+	Another string `json:"another"`
 }
 
 service greetv1-api {

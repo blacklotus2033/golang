@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../awesomeProject/.idea/awesomeProject.iml" filepath="$PROJECT_DIR$/../awesomeProject/.idea/awesomeProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/golang.iml" filepath="$PROJECT_DIR$/.idea/golang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../opengo/zindle-main/.idea/zindle-main.iml" filepath="$PROJECT_DIR$/../../opengo/zindle-main/.idea/zindle-main.iml" />
     </modules>
   </component>
 </project>

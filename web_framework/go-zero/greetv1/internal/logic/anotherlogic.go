@@ -25,6 +25,6 @@ func NewAnotherLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AnotherLo
 
 func (l *AnotherLogic) Another(req *types.AnotherReq) (resp *types.AnotherRes, err error) {
 	// todo: add your logic here and delete this line
-
+	resp = new(types.AnotherRes)
 	return
 }
